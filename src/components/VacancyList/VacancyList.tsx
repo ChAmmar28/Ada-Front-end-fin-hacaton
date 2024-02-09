@@ -1,0 +1,27 @@
+import { useEffect } from "react";
+
+function VacancyList() {
+  useEffect(() => {
+    // const dbref = ref(getDatabase(app));
+    // get(child(dbref, "/anime_merchandise/"))
+    //   .then((snapshot) => {
+    //     if (snapshot.exists()) {
+    //       GetData(snapshot.val());
+    //     } else {
+    //       console.log("No data available");
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
+  }, []);
+
+  return (
+    <ul>
+      {/* {dataArray &&
+        dataArray.map((item) => <Cards key={item.id} data={item} />)} */}
+    </ul>
+  );
+}
+
+export default VacancyList;
