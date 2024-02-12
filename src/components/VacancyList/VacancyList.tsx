@@ -1,5 +1,9 @@
 import { useEffect } from "react";
 
+import { IVacancyData } from "../../types/IVacancyData";
+
+import cls from "../../styles/VacancyList.module.scss";
+
 function VacancyList() {
   useEffect(() => {
     // const dbref = ref(getDatabase(app));
@@ -17,7 +21,7 @@ function VacancyList() {
   }, []);
 
   return (
-    <ul>
+    <ul className={cls.VacancyList}>
       {/* {dataArray &&
         dataArray.map((item) => <Cards key={item.id} data={item} />)} */}
     </ul>
