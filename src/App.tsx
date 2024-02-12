@@ -3,11 +3,12 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import HomePage from "./pages/HomePage/HomePage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
-import Vacancy from "./pages/Vacancy/Vacancy";
-import Events from "./pages/Events/Events";
-import Community from "./pages/Community/Community";
-import Organization from "./pages/Organization/Organization";
+import Vacancies from "./pages/Vacancies/Vacancies";
 import ChatGPT from "./pages/ChatGPT/ChatGPT";
+import News from "./pages/News/News";
+import Posts from "./pages/Posts/Posts";
+import Company from "./pages/Company/Company";
+import Courses from "./components/Courses/Courses";
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" index element={<HomePage />} />
-          <Route path="/vacancy" index element={<Vacancy />} />
-          <Route path="/events" index element={<Events />} />
-          <Route path="/community" index element={<Community />} />
-          <Route path="/organization" index element={<Organization />} />
+          <Route path="/vacancies" index element={<Vacancies />} />
+          <Route path="/posts" index element={<Posts />} />
+          <Route path="/company" index element={<Company />} />
+          <Route path="/news" index element={<News />} />
+          <Route path="/courses" index element={<Courses />} />
           <Route path="/chatGPT" index element={<ChatGPT />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>

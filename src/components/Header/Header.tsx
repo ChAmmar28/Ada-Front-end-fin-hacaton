@@ -9,11 +9,12 @@ const Header: React.FC = () => {
       </div>
       <div className="navBar">
         <ul>
-        <li>        <NavLink to='/vacancy' className={({isActive}) => isActive ? 'active-link' : ''}>Ваканции</NavLink>
+        <li>        <NavLink to='/vacancies' className={({isActive}) => isActive ? 'active-link' : ''}>Ваканции</NavLink>
         </li>
-          <li><NavLink to='/events' className={({isActive}) => isActive ? 'active-link' : ''}>Мероприятия</NavLink></li>
-          <li><NavLink to='/organization' className={({isActive}) => isActive ? 'active-link' : ''}>Организации</NavLink></li>
-          <li><NavLink to='/community' className={({isActive}) => isActive ? 'active-link' : ''}>Сообщества</NavLink></li>
+          <li><NavLink to='/posts' className={({isActive}) => isActive ? 'active-link' : ''}>Публикации</NavLink></li>
+          <li><NavLink to='/company' className={({isActive}) => isActive ? 'active-link' : ''}>Компании</NavLink></li>
+          <li><NavLink to='/news' className={({isActive}) => isActive ? 'active-link' : ''}>Новости</NavLink></li>
+          <li><NavLink to='/courses' className={({isActive}) => isActive ? 'active-link' : ''}>Курсы</NavLink></li>
           <li><NavLink to='/chatGPT' className={({isActive}) => isActive ? 'active-link' : ''}>ChatGPT</NavLink></li>
         </ul>
       </div>
