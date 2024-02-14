@@ -1,29 +1,27 @@
+import { useSelector } from "react-redux";
+import { IVacancyData } from "../../types/IVacancyData";
+import { RootState } from "../../store/store";
+import VacancyCard from "../VacancyCard/VacancyCard";
+import cls from "../../styles/VacancyList.module.scss";
+import { useDispatch } from "react-redux";
+import { getVacations } from "../../store/slices/VacationSlice";
+import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
 import { useEffect } from "react";
 
-import { IVacancyData } from "../../types/IVacancyData";
-
-import cls from "../../styles/VacancyList.module.scss";
-
 function VacancyList() {
+  const dispatch: ThunkDispatch<RootState, any, AnyAction> = useDispatch();
   useEffect(() => {
-    // const dbref = ref(getDatabase(app));
-    // get(child(dbref, "/anime_merchandise/"))
-    //   .then((snapshot) => {
-    //     if (snapshot.exists()) {
-    //       GetData(snapshot.val());
-    //     } else {
-    //       console.log("No data available");
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
+    dispatch(getVacations());
   }, []);
-
+  const data: IVacancyData[] = useSelector(
+    (state: RootState) => state.vacationReducer.list
+  );
   return (
     <ul className={cls.VacancyList}>
-      {/* {dataArray &&
-        dataArray.map((item) => <Cards key={item.id} data={item} />)} */}
+      list
+      {data?.map((item) => (
+        <VacancyCard key={item.id} data={item} />
+      ))}
     </ul>
   );
 }

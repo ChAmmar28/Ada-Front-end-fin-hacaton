@@ -1,17 +1,16 @@
 import { NavLink } from "react-router-dom";
+import { IVacancyProps } from "../../types/IVacancyProps";
+// import cls from "../../styles/VacancyCard.module.scss";
 
-import cls from "../../styles/VacancyCard.module.scss";
-
-function VacancyCard() {
+function VacancyCard({ data }: IVacancyProps) {
   return (
     <li>
       <NavLink to={""}>
-        {" "}
         <img src="" alt="" />
         <div>
-          <p></p>
-          <p></p>
-          <p></p>
+          <p>{data.title}</p>
+          <p>{data.owner}</p>
+          <p>{data.salary}</p>
         </div>
       </NavLink>
     </li>
