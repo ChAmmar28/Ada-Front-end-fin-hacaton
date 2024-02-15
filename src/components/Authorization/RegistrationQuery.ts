@@ -58,19 +58,22 @@ export const logIn = async (
    password: any
 ): Promise<{ success: boolean; data?: any }> => {
    try {
+      console.log(email)
+      console.log(password)
+      const requestData = {
+         email: email,
+         password: password,
+      }
       const url = 'https://it-intern-hub.freemyip.com/account/login/'
 
-      const response = await axios.post(
-         url,
-         { email: email, password: password },
-         {
-            headers: {
-               'Content-Type': 'application/json',
-            },
-         }
-      )
+      const response = await axios.post(url, requestData, {
+         headers: {
+            'Content-Type': 'application/json',
+         },
+      })
 
-      console.log(response.data)
+      console.log(response)
+
       return { success: true, data: response.data }
    } catch (error) {
       console.error('Error:', error)

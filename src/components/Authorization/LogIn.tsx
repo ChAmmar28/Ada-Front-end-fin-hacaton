@@ -1,12 +1,16 @@
 import { useState } from 'react'
 import { logIn } from './RegistrationQuery'
+import { useNavigate } from 'react-router-dom'
 
 const LogIn = () => {
+   const navigate = useNavigate()
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
 
    const handleLogIn = () => {
       const login = logIn(email, password)
+      console.log('login: ', login)
+      navigate('/')
    }
    const handleChangePassword = () => {}
 
