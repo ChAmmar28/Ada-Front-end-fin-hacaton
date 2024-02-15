@@ -10,6 +10,8 @@ import Posts from './pages/Posts/Posts'
 import Company from './pages/Company/Company'
 import Courses from './pages/Courses/Courses'
 import NewsDetails from './pages/News/NewsDetails'
+import LogIn from './components/Authorization/LogIn'
+import Registration from './components/Authorization/Registration'
 
 function App() {
    return (
@@ -17,17 +19,15 @@ function App() {
          <Routes>
             <Route path="/" element={<Layout />}>
                <Route path="/" index element={<HomePage />} />
-               <Route path="/vacancies" index element={<Vacancies />} />
-               <Route path="/posts" index element={<Posts />} />
-               <Route path="/company" index element={<Company />} />
-               <Route path="/news" index element={<News />} />
-               <Route
-                  path="/news/details/:id"
-                  index
-                  element={<NewsDetails />}
-               />
-               <Route path="/courses" index element={<Courses />} />
-               <Route path="/chatGPT" index element={<ChatGPT />} />
+               <Route path="/vacancies" element={<Vacancies />} />
+               <Route path="/posts" element={<Posts />} />
+               <Route path="/company" element={<Company />} />
+               <Route path="/news" element={<News />} />
+               <Route path="/news/details/:id" element={<NewsDetails />} />
+               <Route path="/courses" element={<Courses />} />
+               <Route path="/chatGPT" element={<ChatGPT />} />
+               <Route path="/login" element={<LogIn />} />
+               <Route path="/registration" element={<Registration />} />
                <Route path="*" element={<ErrorPage />} />
             </Route>
          </Routes>
