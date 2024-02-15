@@ -1,0 +1,31 @@
+@import "./colorBar.scss";
+
+.VacancyCard {
+  // width: ;
+  // height: ;
+  display: flex;
+  margin-bottom: 10px;
+  background: $color4;
+  padding: 15px;
+  border-radius: 8px;
+  .Wrapp {
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+  }
+}
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+}
+.owner {
+  color: $color6;
+}
+
+.salary {
+  color: $color2;
+}
+// <p className={cls.title}>{data.title}</p>
+// <p className={cls.owner}>{data.owner}</p>
+// <p className={cls.salary}>{data.salary}</p>
