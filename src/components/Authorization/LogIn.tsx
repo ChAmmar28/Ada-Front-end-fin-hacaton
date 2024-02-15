@@ -1,17 +1,30 @@
 import { useState } from 'react'
-import { logIn } from './RegistrationQuery'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { login } from './RegistrationQuery'
+import { AppDispatch, RootState } from '../../store/store'
+import { useSelector } from 'react-redux'
 
 const LogIn = () => {
    const navigate = useNavigate()
+   const dispatch = useDispatch<AppDispatch>()
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
-
-   const handleLogIn = () => {
-      const login = logIn(email, password)
-      console.log('login: ', login)
-      navigate('/')
+   const token = useSelector((state: RootState) => state.token.token)
+   console.log('token: ', token)
+   const handleLogIn = async () => {
+      console.log('handleLogIn called')
+      const result = await dispatch(login({ email, password }))
+      if (login.fulfilled.match(result)) {
+         if (result.payload.success) {
+            navigate('/')
+            console.log('succes')
+         } else {
+            console.log('Login failed')
+         }
+      }
    }
+
    const handleChangePassword = () => {}
 
    return (

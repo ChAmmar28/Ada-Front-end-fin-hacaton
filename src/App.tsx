@@ -4,14 +4,12 @@ import Layout from './components/Layout/Layout'
 import HomePage from './pages/HomePage/HomePage'
 import ErrorPage from './pages/ErrorPage/ErrorPage'
 import Vacancies from './pages/Vacancies/Vacancies'
-import ChatGPT from './pages/ChatGPT/ChatGPT'
 import News from './pages/News/News'
 import Posts from './pages/Posts/Posts'
 import Company from './pages/Company/Company'
 import Courses from './pages/Courses/Courses'
 import NewsDetails from './pages/News/NewsDetails'
-import LogIn from './components/Authorization/LogIn'
-import Registration from './components/Authorization/Registration'
+import Auth from './components/Authorization/Auth'
 
 function App() {
    return (
@@ -25,9 +23,7 @@ function App() {
                <Route path="/news" element={<News />} />
                <Route path="/news/details/:id" element={<NewsDetails />} />
                <Route path="/courses" element={<Courses />} />
-               <Route path="/chatGPT" element={<ChatGPT />} />
-               <Route path="/login" element={<LogIn />} />
-               <Route path="/registration" element={<Registration />} />
+               <Route path="/auth" element={<Auth />} />
                <Route path="*" element={<ErrorPage />} />
             </Route>
          </Routes>

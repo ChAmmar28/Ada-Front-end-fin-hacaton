@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { registerPost, activateAccount } from './RegistrationQuery'
+import { registerPost } from './RegistrationQuery'
 import { useNavigate } from 'react-router-dom'
 
 const Registration = () => {
@@ -9,8 +9,8 @@ const Registration = () => {
    const [password, setPassword] = useState('')
    const [confPassword, setConfPassword] = useState('')
 
-   const [token, setToken] = useState('')
-   const [activate, setActivate] = useState(false)
+   // const [token, setToken] = useState('')
+   // const [activate, setActivate] = useState(false)
 
    const navigate = useNavigate()
 
@@ -25,28 +25,33 @@ const Registration = () => {
          )
 
          console.log('reg: ', reg)
-
-         // Проверяем успешность регистрации
          if (reg.success) {
-            // Устанавливаем activate в true
-            setActivate(true)
+            console.log('object')
          } else {
-            // Обработка неудачи, если необходимо
-            console.error('Registration failed:', reg.data)
+            return <div>{reg.data}</div>
          }
+
+         // // Проверяем успешность регистрации
+         // if (reg.success) {
+         //    // Устанавливаем activate в true
+         //    setActivate(true)
+         // } else {
+         //    // Обработка неудачи, если необходимо
+         //    console.error('Registration failed:', reg.data)
+         // }
       } catch (error) {
          console.error('Error during registration:', error)
       }
    }
-   const handleActivate = () => {
-      try {
-         const active = activateAccount(token)
-         console.log('active: ', active)
-         navigate('/login')
-      } catch (error) {
-         console.error('Error during activation:', error)
-      }
-   }
+   // const handleActivate = () => {
+   //    try {
+   //       const active = activateAccount(token)
+   //       console.log('active: ', active)
+   //       navigate('/login')
+   //    } catch (error) {
+   //       console.error('Error during activation:', error)
+   //    }
+   // }
    return (
       <div>
          <ul>
@@ -84,7 +89,7 @@ const Registration = () => {
             </li>
             <button onClick={handleRegistration}>Reg</button>
          </ul>
-         {activate && (
+         {/* {activate && (
             <div>
                <input
                   type="text"
@@ -93,7 +98,7 @@ const Registration = () => {
                />
                <button onClick={handleActivate}>Activate</button>
             </div>
-         )}
+         )} */}
       </div>
    )
 }

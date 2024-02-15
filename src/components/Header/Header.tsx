@@ -1,7 +1,10 @@
 import { NavLink } from 'react-router-dom'
+import { CircleUserRound, LogIn } from 'lucide-react'
 import '../../styles/HeaderStyles.scss'
+import { useState } from 'react'
 
 const Header: React.FC = () => {
+   const [isAuth, setIsAuth] = useState(false)
    return (
       <header>
          <div className="logo">
@@ -70,13 +73,10 @@ const Header: React.FC = () => {
                      ChatGPT
                   </NavLink>
                </li>
-            </ul>
-            <ul>
                <li>
-                  <NavLink to="/login">LogIn</NavLink>
-               </li>
-               <li>
-                  <NavLink to="/registration">Sign In</NavLink>
+                  <NavLink to="/auth">
+                     {isAuth ? <CircleUserRound /> : <LogIn />}
+                  </NavLink>
                </li>
             </ul>
          </div>
