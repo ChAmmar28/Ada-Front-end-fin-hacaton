@@ -10,6 +10,7 @@ import Company from './pages/Company/Company'
 import Courses from './pages/Courses/Courses'
 import NewsDetails from './pages/News/NewsDetails'
 import Auth from './components/Authorization/Auth'
+import VacancyPage from './pages/VacancyPage/VacancyPage'
 
 function App() {
    return (
@@ -17,7 +18,8 @@ function App() {
          <Routes>
             <Route path="/" element={<Layout />}>
                <Route path="/" index element={<HomePage />} />
-               <Route path="/vacancies" element={<Vacancies />} />
+               {/* <Route path="/vacancies" element={<Vacancies />} /> */}
+               <Route path="/vacancies/:vacId" element={<VacancyPage />} />
                <Route path="/posts" element={<Posts />} />
                <Route path="/company" element={<Company />} />
                <Route path="/news" element={<News />} />

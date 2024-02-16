@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { RootState } from '../../store/store'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { getNewsDetails } from '../../functions/NewsSlice'
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit'
 
