@@ -1,0 +1,13 @@
+.authContainer {
+   display: flex;
+   flex-direction: column;
+   position: relative;
+   top: 100px;
+   box-shadow: 0 0 10px black;
+}
+
+.toggleBtnCont {
+   display: flex;
+   justify-content: center;
+   margin: 0 auto;
+}

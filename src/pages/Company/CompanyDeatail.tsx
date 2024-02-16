@@ -8,7 +8,7 @@ import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit'
 import styles from '../../styles/NewsDetails.module.scss'
 import { XCircle } from 'lucide-react'
 
-const NewsDetails = () => {
+const CompanyDetail = () => {
    const dispatch: ThunkDispatch<RootState, any, AnyAction> = useDispatch()
    const navigate = useNavigate()
    const { id } = useParams()
@@ -58,4 +58,4 @@ const NewsDetails = () => {
    )
 }
 
-export default NewsDetails
+export default CompanyDetail

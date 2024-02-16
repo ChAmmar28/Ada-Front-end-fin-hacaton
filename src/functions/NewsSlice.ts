@@ -1,9 +1,19 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import API from './AxiosRequester'
 
+export interface NewsItem {
+   image: string
+   owner: string
+   title: string
+   place: string
+   text: string
+   links: string
+   created_at: string
+}
+
 interface initState {
    newsList: any[]
-   newsDetails: any[]
+   newsDetails: NewsItem[]
    isLoading: boolean
    error: any
 }
