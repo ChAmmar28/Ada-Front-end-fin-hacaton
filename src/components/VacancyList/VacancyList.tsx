@@ -7,17 +7,9 @@ import { useDispatch } from 'react-redux'
 import { getVacations } from '../../store/slices/VacationSlice'
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit'
 import { useEffect } from 'react'
-// import { getMoreInfo } from "../../store/slices/MoreInfoSlice";
 
 function VacancyList() {
    const dispatch: ThunkDispatch<RootState, any, AnyAction> = useDispatch()
-   useEffect(() => {
-      dispatch(getVacations())
-   }, [])
-
-   // const handleClick = (data: IVacancyData) => {
-   //   dispatch(getMoreInfo(data));
-   // };
    useEffect(() => {
       dispatch(getVacations())
    }, [])
