@@ -1,49 +1,42 @@
-import API from "../../functions/AxiosRequester";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import API from '../../functions/AxiosRequester'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { IVacancyData } from '../../types/IVacancyData'
 
 interface initState {
-  list: any[];
-  isLoading: boolean;
-  error: any;
+   obj: IVacancyData
+   isLoading: boolean
+   error: any
 }
 
 const initialState: initState = {
-  list: [],
-  isLoading: false,
-  error: {},
-};
+   obj: <IVacancyData>{},
+   isLoading: false,
+   error: {},
+}
 
-export const getMoreInfo = createAsyncThunk<any, void>(
-  "getMoreInfo",
-  async (id, thunkAPI) => {
-    //  try {
-    //     const response = await API.get(news/news_detail/${id}/)
-    //     console.log(response.data.news)
-    //     return response.data.news
-    //  } catch (error) {
-    //     return thunkAPI.rejectWithValue(error)
-    //  }
-    try {
-      const response = await API.get(`vacancies/vacancy/${id}/`);
-      console.log("response: ", response.data);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error);
-    }
-  }
-);
+export const getMoreInfo = createAsyncThunk<any, any>(
+   'MoreInfo',
+   async (vacId, thunkAPI) => {
+      try {
+         const response = await API.get(`vacancies/vacancy/${vacId}/`)
+         return response.data
+      } catch (error) {
+         return thunkAPI.rejectWithValue(error)
+      }
+   }
+)
 
 const MoreInfoSlice = createSlice({
-  name: "MoreInfoSlice",
-  initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(getMoreInfo.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.list = action.payload;
-    });
-  },
-});
+   name: 'MoreInfoSlice',
+   initialState,
+   reducers: {},
+   extraReducers: (builder) => {
+      builder.addCase(getMoreInfo.fulfilled, (state, action) => {
+         state.isLoading = false
+         state.obj = action.payload
+      })
+   },
+})
 
-export type MoreInfoState = ReturnType<typeof MoreInfoSlice.reducer>;
-export default MoreInfoSlice.reducer;
+export type MoreInfoState = ReturnType<typeof MoreInfoSlice.reducer>
+export default MoreInfoSlice.reducer
