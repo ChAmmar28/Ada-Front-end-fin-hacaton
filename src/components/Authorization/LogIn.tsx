@@ -29,11 +29,11 @@ const LogIn = () => {
       <div className={styles.logInContainer}>
          <ul>
             <li>
-               <label>email</label>
+               <label>Email</label>
                <input type="mail" onChange={(e) => setEmail(e.target.value)} />
             </li>
             <li>
-               <label>password</label>
+               <label>Password</label>
                <input
                   type="password"
                   onChange={(e) => setPassword(e.target.value)}

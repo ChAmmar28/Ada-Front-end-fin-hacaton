@@ -23,6 +23,8 @@ const Authorization = () => {
             <ToggleRight
                cursor="pointer"
                display="block"
+               width="50px"
+               hanging="50px"
                onClick={toggleForm}
             />
          </div>

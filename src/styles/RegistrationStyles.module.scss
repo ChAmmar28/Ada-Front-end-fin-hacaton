@@ -1,5 +1,5 @@
 .registrationForm {
-   width: 300px;
+   width: 500px;
    padding: 20px;
    ul {
       list-style: none;
@@ -9,9 +9,12 @@
          padding: 0 10px;
          label {
             display: block;
+            font-size: 24px;
          }
          input {
             width: 100%;
+            padding: 4px 10px;
+            font-size: 24px;
          }
       }
       button {
@@ -28,6 +31,7 @@
          color: white;
          display: block;
          margin-top: 20px;
+         font-size: 24px;
       }
    }
 }

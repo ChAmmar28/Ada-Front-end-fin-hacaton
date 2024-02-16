@@ -63,6 +63,19 @@ export const createCompany = createAsyncThunk(
    }
 )
 
+export const getNewsDetails = createAsyncThunk<any, string>(
+   'NewsDetails',
+   async (id, thunkAPI) => {
+      try {
+         const response = await API.get(`companies/company/${id}/`)
+         console.log(response.data.news)
+         return response.data.news
+      } catch (error) {
+         return thunkAPI.rejectWithValue(error)
+      }
+   }
+)
+
 const CompaniesListSlice = createSlice({
    name: 'companiesList',
    initialState,
@@ -74,6 +87,10 @@ const CompaniesListSlice = createSlice({
       builder.addCase(getCompaniesList.fulfilled, (state, action) => {
          state.isLoading = false
          state.companiesList = action.payload
+      })
+      builder.addCase(getNewsDetails.fulfilled, (state, action) => {
+         state.isLoading = false
+         state.newsDetails = action.payload
       })
       builder.addCase(getCompaniesList.rejected, (state, action) => {
          state.error = action.error.message
