@@ -1,35 +1,37 @@
-@import "colorBar.scss";
-header{
-  background-color: $color3;
-  padding: 20px;
-  display: flex;
-  justify-content: space-around;
-  .logo{
-    a{
-      text-decoration: none;
-      color: white;
-    }
-  }
-  .navBar{
-    ul{
-      list-style: none;
-      display: flex;
-      gap: 10px;
-      a{
-      text-decoration: none;
-      color: white;
-      font-size: 14px;
-      transition: .3s;
-      &:hover{
-        color: grey;
-        border-bottom: 1px solid grey;
+@import 'colorBar.scss';
+header {
+   background-color: $color3;
+   padding: 20px;
+   display: flex;
+   justify-content: space-around;
+   .logo {
+      a {
+         text-decoration: none;
+         color: white;
+         font-size: 34px;
       }
-    }
-    .active-link{
-      border-bottom: 1px solid black;
-      color: black;
-    }
-    }
-    
-  }
+   }
+   .navBar {
+      ul {
+         list-style: none;
+         display: flex;
+         align-items: center;
+         gap: 15px;
+         a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: 0.3s;
+            font-size: 20px;
+            &:hover {
+               color: grey;
+               border-bottom: 1px solid grey;
+            }
+         }
+         .active-link {
+            border-bottom: 1px solid black;
+            color: black;
+         }
+      }
+   }
 }

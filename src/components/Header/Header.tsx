@@ -1,10 +1,18 @@
 import { NavLink } from 'react-router-dom'
 import { CircleUserRound, LogIn } from 'lucide-react'
 import '../../styles/HeaderStyles.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const Header: React.FC = () => {
-   const [isAuth, setIsAuth] = useState(false)
+   const [isAuthHead, setIsAuthHead] = useState(true)
+   const token = localStorage.getItem('AuthToken')
+   useEffect(() => {
+      if (token === null) {
+         setIsAuthHead(false)
+      } else {
+         setIsAuthHead(true)
+      }
+   }, [isAuthHead])
    return (
       <header>
          <div className="logo">
@@ -65,7 +73,17 @@ const Header: React.FC = () => {
                </li>
                <li>
                   <NavLink
-                     to="/chatGPT"
+                     to="https://t.me/+x32bgUZeSA83MGE6"
+                     className={({ isActive }) =>
+                        isActive ? 'active-link' : ''
+                     }
+                  >
+                     Сообщество
+                  </NavLink>
+               </li>
+               <li>
+                  <NavLink
+                     to="https://t.me/INTERN_gpt_ada_bot"
                      className={({ isActive }) =>
                         isActive ? 'active-link' : ''
                      }
@@ -75,7 +93,7 @@ const Header: React.FC = () => {
                </li>
                <li>
                   <NavLink to="/auth">
-                     {isAuth ? <CircleUserRound /> : <LogIn />}
+                     {isAuthHead ? <CircleUserRound /> : <LogIn />}
                   </NavLink>
                </li>
             </ul>

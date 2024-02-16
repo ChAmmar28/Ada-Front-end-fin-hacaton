@@ -29,18 +29,27 @@ const News: React.FC = () => {
    }
 
    return (
-      <div className={styles.newsList}>
-         {news.map((item) => (
-            <div
-               className={styles.newsList__item}
-               key={item.id}
-               onClick={() => toNewsDetails(item.id)}
-            >
-               <img width="100%" src={item.img} alt={item.place} />
-               <p className={styles.newsList__item__title}>{item.title}</p>
-            </div>
-         ))}
-         <button onClick={() => setAddNewsForm(true)}>Add+</button>
+      <div className={styles.newsContainer}>
+         <button className={styles.addBtn} onClick={() => setAddNewsForm(true)}>
+            Add+
+         </button>
+         <div className={styles.newsList}>
+            {news.map((item) => (
+               <div
+                  className={styles.newsList__item}
+                  key={item.id}
+                  onClick={() => toNewsDetails(item.id)}
+               >
+                  <img
+                     width="100%"
+                     src={`https://it-intern-hub.freemyip.com/${item.image}`}
+                     alt={item.place}
+                  />
+                  <p className={styles.newsList__item__title}>{item.title}</p>
+               </div>
+            ))}
+         </div>
+
          <div>
             {addNewsForm && <AddNewsForm submit={() => handleAddNews} />}
          </div>

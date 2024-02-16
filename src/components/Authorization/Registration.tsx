@@ -1,18 +1,17 @@
 import { useState } from 'react'
 import { registerPost } from './RegistrationQuery'
-import { useNavigate } from 'react-router-dom'
+import styles from '../../styles/RegistrationStyles.module.scss'
 
-const Registration = () => {
+interface LogInProps {
+   setLoginForm: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Registration: React.FC<LogInProps> = ({ setLoginForm }) => {
    const [email, setEmail] = useState('')
    const [firstName, setFirstName] = useState('')
    const [lastName, setLastName] = useState('')
    const [password, setPassword] = useState('')
    const [confPassword, setConfPassword] = useState('')
-
-   // const [token, setToken] = useState('')
-   // const [activate, setActivate] = useState(false)
-
-   const navigate = useNavigate()
 
    const handleRegistration = async () => {
       try {
@@ -26,34 +25,17 @@ const Registration = () => {
 
          console.log('reg: ', reg)
          if (reg.success) {
-            console.log('object')
+            setLoginForm(true)
+            console.log('Registration succes')
          } else {
             return <div>{reg.data}</div>
          }
-
-         // // Проверяем успешность регистрации
-         // if (reg.success) {
-         //    // Устанавливаем activate в true
-         //    setActivate(true)
-         // } else {
-         //    // Обработка неудачи, если необходимо
-         //    console.error('Registration failed:', reg.data)
-         // }
       } catch (error) {
          console.error('Error during registration:', error)
       }
    }
-   // const handleActivate = () => {
-   //    try {
-   //       const active = activateAccount(token)
-   //       console.log('active: ', active)
-   //       navigate('/login')
-   //    } catch (error) {
-   //       console.error('Error during activation:', error)
-   //    }
-   // }
    return (
-      <div>
+      <div className={styles.registrationForm}>
          <ul>
             <li>
                <label>Email</label>
@@ -89,16 +71,6 @@ const Registration = () => {
             </li>
             <button onClick={handleRegistration}>Reg</button>
          </ul>
-         {/* {activate && (
-            <div>
-               <input
-                  type="text"
-                  placeholder="token"
-                  onChange={(e) => setToken(e.target.value)}
-               />
-               <button onClick={handleActivate}>Activate</button>
-            </div>
-         )} */}
       </div>
    )
 }
