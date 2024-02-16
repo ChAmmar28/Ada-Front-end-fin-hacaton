@@ -10,12 +10,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "axios": "^1.6.7",
+=======
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "axios": "^1.6.7",
+    "date-fns": "^3.3.1",
+    "express": "^4.18.2",
+>>>>>>> a00255c47f496a3742f478a45253eede98d5df01
     "lucide-react": "^0.330.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -24,6 +33,7 @@
   },
   "devDependencies": {
     "@reduxjs/toolkit": "^2.1.0",
+    "@types/node": "^20.11.17",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@types/react-redux": "^7.1.33",

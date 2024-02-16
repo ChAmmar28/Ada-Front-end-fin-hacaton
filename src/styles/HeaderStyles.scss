@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "colorBar.scss";
 header{
   background: url(https://images.unsplash.com/photo-1513112300738-bbb13af7028e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)  ;
@@ -37,3 +38,44 @@ header{
     
   }
 }
+=======
+@import './colorBar.scss';
+header {
+   background-color: $color3;
+   padding: 20px;
+   display: flex;
+   justify-content: space-between;
+   //  width: 80%;
+   .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      a {
+         font-size: 25px;
+         text-decoration: none;
+         color: white;
+      }
+   }
+   .navBar {
+      ul {
+         list-style: none;
+         display: flex;
+         gap: 10px;
+         a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: 0.3s;
+            &:hover {
+               color: grey;
+               border-bottom: 1px solid grey;
+            }
+         }
+         .active-link {
+            border-bottom: 1px solid black;
+            color: black;
+         }
+      }
+   }
+}
+>>>>>>> a00255c47f496a3742f478a45253eede98d5df01
