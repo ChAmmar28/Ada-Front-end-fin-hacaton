@@ -1,72 +1,62 @@
-
-
-@import "colorBar.scss";
-header{
-  background: url(https://images.unsplash.com/photo-1513112300738-bbb13af7028e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)  ;
-  padding: 20px;
-  display: flex;
-  justify-content: space-around;
-  .logo{
-    a{
-      text-decoration: none;
-      color: #b1cbe6;
-    }
-  }
-  .navBar{
-    ul{
-      list-style: none;
-      display: flex;
-      gap: 10px;
-      a{
-      text-decoration: none;
-      color: #b1cbe6;
-      transition: .3s;
-      &:hover{
-        color: white;
-        text-shadow: 
-        0 0 20px white, 
-        0 0 40px white,
-        0 0 80px white,
-        0 0 160px white;
-        // border-bottom: 1px solid grey;
+@import 'colorBar.scss';
+header {
+   background: url(https://images.unsplash.com/photo-1513112300738-bbb13af7028e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+   padding: 20px;
+   display: flex;
+   justify-content: space-around;
+   .logo {
+      a {
+         text-decoration: none;
+         color: #b1cbe6;
       }
-    }
-    .active-link{
-      border-bottom: 1px solid rgb(87, 82, 82);
-      color: rgb(100, 92, 92);
-    }
-    }
-    
-  }
-}
-
    }
    .navBar {
       ul {
          list-style: none;
          display: flex;
-         align-items: center;
-         gap: 15px;
-
+         gap: 10px;
          a {
             text-decoration: none;
-            color: white;
-            font-size: 14px;
+            color: #b1cbe6;
             transition: 0.3s;
-
-            font-size: 20px;
-
             &:hover {
-               color: grey;
-               border-bottom: 1px solid grey;
+               color: white;
+               text-shadow: 0 0 20px white, 0 0 40px white, 0 0 80px white,
+                  0 0 160px white;
+               // border-bottom: 1px solid grey;
             }
          }
          .active-link {
-            border-bottom: 1px solid black;
-            color: black;
+            border-bottom: 1px solid rgb(87, 82, 82);
+            color: rgb(100, 92, 92);
          }
       }
    }
 }
 
+.navBar {
+   ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 15px;
 
+      a {
+         text-decoration: none;
+         color: white;
+         font-size: 14px;
+         transition: 0.3s;
+
+         font-size: 20px;
+
+         &:hover {
+            color: grey;
+            border-bottom: 1px solid grey;
+         }
+      }
+      .active-link {
+         border-bottom: 1px solid black;
+         color: black;
+      }
+   }
+}

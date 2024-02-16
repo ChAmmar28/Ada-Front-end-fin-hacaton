@@ -84,6 +84,5 @@ function HomePage() {
          </ul>
       </main>
    )
-
-
+}
 export default HomePage
