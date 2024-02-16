@@ -1,0 +1,30 @@
+.companyContainer {
+   position: relative;
+   padding: 40px;
+   button {
+      position: absolute;
+      right: 50px;
+      top: 10px;
+      border: none;
+      outline: none;
+      background-color: rgb(255, 0, 191);
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 700;
+   }
+   .companiesList {
+      padding: 50px 30px 30px 0;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      &__item {
+         padding: 20px;
+         box-shadow: 0 0 10px black;
+         &__image {
+            max-width: 300px;
+         }
+      }
+   }
+}

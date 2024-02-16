@@ -11,6 +11,7 @@ const initialState: initState = {
    isLoading: false,
    error: {},
 }
+
 export const registerPost = async (
    email: string,
    firstName: string,
@@ -65,6 +66,8 @@ export const login = createAsyncThunk<
          },
       })
       console.log(response.data)
+      localStorage.setItem('AuthToken', response.data.token)
+      console.log('token:', localStorage.getItem('AuthToken'))
       return { success: true, data: response.data }
    } catch (error) {
       console.error('Error:', error)
@@ -72,33 +75,30 @@ export const login = createAsyncThunk<
    }
 })
 
-// export const logIn = async (
-//    email: any,
-//    password: any
-// ): Promise<{ success: boolean; data?: any }> => {
-//    try {
-//       console.log(email)
-//       console.log(password)
-//       const requestData = {
-//          email: email,
-//          password: password,
-//       }
-//       const url = 'https://it-intern-hub.freemyip.com/account/login/'
+export const exit = createAsyncThunk('LogOut', async () => {
+   try {
+      const url = 'https://it-intern-hub.freemyip.com/account/logout/'
+      const token = localStorage.getItem('AuthToken')
+      console.log('token-LogOut: ', token)
+      const response = await axios.post(
+         url,
+         {},
+         {
+            headers: {
+               Authorization: `Bearer ${token}`,
+               'Content-Type': 'application/json',
+            },
+         }
+      )
 
-//       const response = await axios.post(url, requestData, {
-//          headers: {
-//             'Content-Type': 'application/json',
-//          },
-//       })
+      console.log(response)
 
-//       console.log(response)
-
-//       return { success: true, data: response.data }
-//    } catch (error) {
-//       console.error('Error:', error)
-//       return { success: false, data: error }
-//    }
-// }
+      return { success: true, data: response.data }
+   } catch (error) {
+      console.error('Error:', error)
+      return { success: false, data: error }
+   }
+})
 
 const logIn = createSlice({
    name: 'LogIn',
@@ -113,6 +113,16 @@ const logIn = createSlice({
          state.token = action.payload.data.token
       })
       builder.addCase(login.rejected, (state, action) => {
+         state.error = action.error
+         state.isLoading = false
+      })
+      builder.addCase(exit.pending, (state) => {
+         state.isLoading = true
+      })
+      builder.addCase(exit.fulfilled, (state, action) => {
+         state.isLoading = false
+      })
+      builder.addCase(exit.rejected, (state, action) => {
          state.error = action.error
          state.isLoading = false
       })
